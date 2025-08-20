@@ -9,12 +9,14 @@ const lockClosed = "M28 4.258c-6.54 0-12.516 4.664-12.516 14.25v5.625c-2.53.305-
 export default function Lock() {
   const [locked, setLocked] = useState(true);
 
-  const handleToggle = () => {
-    const sound = !locked ? "/click.wav" : "/SciFiSound.wav";
-    const audio = new Audio(sound);
+  const playSound = (src: string) => {
+    const audio = new Audio(src);
     audio.currentTime = 0;
     audio.play().catch(err => console.error("Audio play failed:", err));
+  }
 
+  const handleToggle = () => {
+    playSound(!locked ? "/click.wav" : "/SciFiSound.wav");
     setLocked(!locked);
   }
 
