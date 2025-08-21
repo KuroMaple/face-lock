@@ -1,12 +1,15 @@
 'use client';
 
 import Lock from '@/components/Lock'
+import WebcamFeed from '@/components/WebcamFeed'
 import { useState } from 'react'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-24">
+    <div className="flex flex-col items-center justify-center min-h-screen space-y-4">
+      <WebcamFeed />
       <Lock />
+      
     </div>
   );
 }
