@@ -1,10 +1,10 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import * as faceapi from 'face-api.js';
 
-export default function WebcamFeed() {
+export default function WebcamFeed({ faceDetected, setFaceDetected }: { faceDetected: boolean; setFaceDetected: Dispatch<SetStateAction<boolean>> }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [faceDetected, setFaceDetected] = useState(false);
+  
 
   useEffect(() => {
     // Ask for webcam access
