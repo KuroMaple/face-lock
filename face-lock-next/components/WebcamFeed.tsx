@@ -28,7 +28,7 @@ export default function WebcamFeed({ faceDetected, setFaceDetected }: { faceDete
         const interval = setInterval(async () => {
           const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
           setFaceDetected(detections.length > 0)
-        }, 100)
+        }, 1000)
       })
     }
     loadModelsAndDetect().catch(err => console.error("Error loading models:", err));
